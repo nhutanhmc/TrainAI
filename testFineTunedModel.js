@@ -2,11 +2,10 @@ import "dotenv/config.js";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY, // API key của bạn
 });
 
-// Tên model đã fine-tune
-const fineTunedModel = "ft:gpt-3.5-turbo-0125:srcoach::ApCJhuE3";
+const fineTunedModel = "ft:gpt-3.5-turbo-0125:srcoach::ApFoIEsg"; // Tên model fine-tuned
 
 async function testFineTunedModel() {
   try {
@@ -15,14 +14,14 @@ async function testFineTunedModel() {
       messages: [
         { role: "user", content: "Ai là người có nhịp tim khỏe nhất tại quận Q4" }
       ],
-      max_tokens: 100,
-      temperature: 0.5,
+      max_tokens: 100, // Giới hạn số token
+      temperature: 0, 
     });
 
     console.log("=== RESPONSE ===");
     console.log(response.choices[0].message.content);
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error:", error.response?.data || error.message);
   }
 }
 
