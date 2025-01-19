@@ -8,7 +8,8 @@
     "express": "^4.21.2",
     "git-filter-repo": "^0.0.30",
     "mssql": "^11.0.1",
-    "openai": "^4.78.1"
+    "openai": "^4.78.1",
+    "sequelize": "^6.37.5"
   },
   "description": "",
   "main": "app.js",
